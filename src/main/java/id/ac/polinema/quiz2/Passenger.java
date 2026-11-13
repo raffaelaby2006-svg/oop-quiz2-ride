@@ -24,7 +24,6 @@ public class Passenger {
     public Passenger(String passengerId, String name) {
         this.passengerId = passengerId;
         this.name = name;
-        throw new UnsupportedOperationException("Not implemented yet");
     }
 
     public String getPassengerId() {
@@ -42,6 +41,6 @@ public class Passenger {
      * @param name nama baru
      */
     public void setName(String name) {
-        throw new UnsupportedOperationException("Not implemented yet");
+        setName(name);
     }
 }
