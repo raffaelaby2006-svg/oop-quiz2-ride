@@ -12,8 +12,8 @@ package id.ac.polinema.quiz2;
  */
 public class Passenger {
 
-    String passengerId;
-    String name;
+    private String passengerId;
+    private String name;
 
     /**
      * Menyimpan kedua parameter ke field.
@@ -41,6 +41,8 @@ public class Passenger {
      * @param name nama baru
      */
     public void setName(String name) {
-        setName(name);
+        if(name != null && !name.trim().isEmpty()){
+            this.name = name;
+        }
     }
 }
