@@ -1,6 +1,9 @@
 package id.ac.polinema.quiz2;
 
 import java.util.List;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * TAHAP 3 (polimorfisme dan exception): perhitungan atas banyak perjalanan.
@@ -20,7 +23,9 @@ public class RideCalculator {
      * @return jumlah semua tarif, atau 0 bila daftar kosong
      */
     public static double totalFare(List<Ride> orders) {
-        return orders.stream().mapToDouble("null");
+       return orders.stream()
+        .mapToDouble(Ride::calculateFare)
+        .sum();
     }
 
     /**
@@ -32,7 +37,7 @@ public class RideCalculator {
      * @return jumlah biaya asuransi perjalanan, atau 0 bila tidak ada yang punya
      */
     public static double totalInsurance(List<Ride> orders) {
-        return orders.stream().filter(order -> order instanceof Insurable).mapToDouble(order -> ((Insurable) order).getInsuranceCost()).sum();
+        return orders.stream().filter(order -> order instanceof Insurable).mapToDouble(order -> ((Insurable) order).insuranceFee()).sum();
     }
     /**
      * Memeriksa jarak. Valid hanya bila jarak lebih dari 0 dan paling banyak 50 km.
@@ -58,7 +63,7 @@ public class RideCalculator {
         try{
             validate(order);
             return true;
-        }catch(InvalidDistanceException){
+        }catch(InvalidDistanceException e){
             return false;
         }
     }
