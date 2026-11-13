@@ -34,7 +34,6 @@ public class RideCalculator {
     public static double totalInsurance(List<Ride> orders) {
         throw new UnsupportedOperationException("Not implemented yet");
     }
-
     /**
      * Memeriksa jarak. Valid hanya bila jarak lebih dari 0 dan paling banyak 50 km.
      * Bila tidak valid, lempar {@code InvalidDistanceException} dengan pesan
